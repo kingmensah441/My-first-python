@@ -1,0 +1,38 @@
+def trading_bot(trades):
+    total = 0
+    wins = 0
+    for profit in trades:
+        total = total + profit
+        if profit > 0:
+            wins = wins + 1
+    win_rate = wins / len(trades) * 100
+    print(f"Total Profit: ${total}")
+    print(f"Wins: {wins}/{len(trades)}")
+    print(f"Win Rate: {win_rate}%")
+    if total > 0:
+        print("Overall: WIN - Good Strategy!")
+    else:
+        print("Overall: LOSS - Change Strategy!")
+    return total
+
+# --- NEW: LIVE TRADE CHECKER ---
+def check_live_trade(entry_price, current_price):
+    profit = current_price - entry_price
+    print(f"\nEntry: ${entry_price} | Now: ${current_price}")
+    if profit > 0:
+        print(f"LIVE Profit: ${profit} - KEEP HOLDING!")
+    elif profit < 0:
+        print(f"LIVE Loss: ${profit} - CONSIDER CLOSING!")
+    else:
+        print("Break Even")
+    return profit
+
+# Your past trades
+my_trades = [300, -50, 100, -20]
+trading_bot(my_trades)
+
+# Your live trade - imagine you bought Gold at 2000 and now it's 2030
+check_live_trade(2000, 2030)
+
+# Try a losing one
+check_live_trade(2000, 1980)
