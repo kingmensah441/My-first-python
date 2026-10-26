@@ -1,0 +1,22 @@
+def trading_bot(trades):
+    total = 0
+    wins = 0
+
+    for profit in trades:
+        total = total + profit
+        if profit > 0:
+            wins = wins + 1
+
+    win_rate = wins / len(trades) * 100
+
+    print(f"Total Profit: ${total}")
+    print(f"Wins: {wins}/{len(trades)}")
+    print(f"Win Rate: {win_rate}%")
+
+    if total > 0:
+        print("Overall: WIN - Good Strategy!")
+    else:
+        print("Overall: LOSS - Change Strategy!")
+
+my_trades = [300, -50, 100, -20]
+trading_bot(my_trades)
