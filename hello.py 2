@@ -1,0 +1,6 @@
+profit = 300
+
+if profit > 0:
+    print("WIN - Keep trading")
+else:
+    print("LOSS - Stop")
