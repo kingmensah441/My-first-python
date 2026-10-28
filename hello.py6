@@ -1,0 +1,20 @@
+secret = 7
+attempts = 0
+guesses = [3, 9, 7]  # you can change these to test
+
+while attempts < 3:
+    guess = guesses[attempts]
+    print(f"Your guess: {guess}")
+    
+    if guess == secret:
+        print("You win! 🎉")
+        break
+    elif guess > secret:
+        print("Too high! \n")
+    else:
+        print("Too low! \n")
+    
+    attempts = attempts + 1
+
+if attempts == 3 and guess != secret:
+    print(f"Game over! Secret was {secret}")
